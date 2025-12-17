@@ -1,0 +1,20 @@
+{
+  "name": "christmas",
+  "version": "1.0.0",
+  "description": "Christmas Developer Judge - A festive card-swiping game to determine if you're a naughty or nice developer",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^25.0.3",
+    "phaser": "^3.90.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
+  }
+}
