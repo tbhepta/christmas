@@ -21,8 +21,9 @@ export default class MainScene extends Phaser.Scene {
   }
 
   create() {
-    // Initialize cards with developer statements
-    this.cards = [
+    // Initialize all available cards with developer statements
+    const allCards: Card[] = [
+      // Original cards
       { text: 'git push --force', isGood: false },
       { text: 'Writing unit tests', isGood: true },
       { text: 'Code without comments', isGood: false },
@@ -32,11 +33,56 @@ export default class MainScene extends Phaser.Scene {
       { text: 'TODO: fix this later', isGood: false },
       { text: 'Proper error handling', isGood: true },
       { text: 'Copy-paste from\nStack Overflow', isGood: false },
-      { text: 'Reading documentation', isGood: true }
+      { text: 'Reading documentation', isGood: true },
+      
+      // Kotlin-specific cards
+      { text: 'Using !! operator\neverywhere', isGood: false },
+      { text: 'Leveraging data classes\nfor DTOs', isGood: true },
+      { text: 'lateinit var for everything', isGood: false },
+      { text: 'Using suspend functions\nfor async operations', isGood: true },
+      { text: 'Nullable types with\nproper null safety', isGood: true },
+      { text: 'when {} without else\nbranch', isGood: false },
+      { text: 'Extension functions\nfor cleaner code', isGood: true },
+      { text: 'Sealed classes for\ntype-safe state', isGood: true },
+      
+      // Software Architecture cards
+      { text: 'God classes with\n5000+ lines', isGood: false },
+      { text: 'Single Responsibility\nPrinciple', isGood: true },
+      { text: 'Circular dependencies\nbetween modules', isGood: false },
+      { text: 'Dependency Injection\nfor loose coupling', isGood: true },
+      { text: 'Microservices for\na TODO app', isGood: false },
+      { text: 'Repository pattern\nfor data access', isGood: true },
+      { text: 'Tight coupling everywhere', isGood: false },
+      { text: 'Clean Architecture\nlayers', isGood: true },
+      { text: 'SOLID principles\nin practice', isGood: true },
+      
+      // Best Practices cards
+      { text: 'Semantic versioning\nfor releases', isGood: true },
+      { text: 'Logging passwords\nfor debugging', isGood: false },
+      { text: 'Feature flags for\ngradual rollouts', isGood: true },
+      { text: 'Production debugging\nwith println()', isGood: false },
+      { text: 'API documentation\nwith examples', isGood: true },
+      { text: 'Catching Exception\nand ignoring it', isGood: false },
+      { text: 'Continuous Integration\npipeline', isGood: true },
+      
+      // Gray area / Humorous cards
+      { text: 'Commenting out code\ninstead of deleting', isGood: false },
+      { text: 'Writing tests after\ncode is deployed', isGood: false },
+      { text: 'Using var for\neverything in Kotlin', isGood: false },
+      { text: 'Over-engineering\na simple feature', isGood: false },
+      { text: 'Skipping standup\nto focus on coding', isGood: false },
+      { text: 'Rewriting everything\nin Rust', isGood: false },
+      { text: 'Adding TODO comments\nin production', isGood: false },
+      { text: 'Using AI to write\nall your code', isGood: false },
+      { text: 'Premature optimization\nis root of all evil', isGood: true },
+      { text: 'Code that works is better\nthan perfect code', isGood: false },
+      { text: 'Meeting-driven\ndevelopment', isGood: false },
+      { text: 'Singleton pattern\nfor everything', isGood: false }
     ];
 
-    // Shuffle cards for variety
-    this.cards = Phaser.Utils.Array.Shuffle(this.cards);
+    // Shuffle all cards and pick 10
+    const shuffled = Phaser.Utils.Array.Shuffle(allCards);
+    this.cards = shuffled.slice(0, 10);
 
     // Create snowflake texture once
     const graphics = this.add.graphics();
